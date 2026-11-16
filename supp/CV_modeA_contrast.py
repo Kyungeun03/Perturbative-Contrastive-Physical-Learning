@@ -140,9 +140,9 @@ def measure_contrasts(X_batch, params, R):
 
 def mode_a_update(params, thresholds, X_batch, y_batch, eta, multivariate=True):
     """
-    One Mode A update :
-    it sets the sign/size of the error that the contrasts are matched to,
-    and the step is confined to the span of the nudge directions.
+    One Mode A update. The target sets the sign and size of the error that
+    the contrasts are matched to, and the step is confined to the span of
+    the nudge directions.
     """
     p = len(params)
     R = draw_directions(N_DIRECTIONS, p)

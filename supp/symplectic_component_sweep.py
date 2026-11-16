@@ -1,8 +1,7 @@
 """
 Accuracy versus number of preprocessed symplectic components
 ============================================================
-Standalone: imports nothing from the earlier file and prints
-only the final table.
+Standalone: prints only the final table.
 
 Pipeline per component count k:
   phase space  xi = [x, Dx] with  p_i = x_{i+1} - x_i

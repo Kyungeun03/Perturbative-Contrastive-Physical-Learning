@@ -61,7 +61,7 @@ LABELS = {
 def cv_linear_classifier(x, params):
     """
     CV photonic classifier: 4 modes, displacement encoding,
-    rotation + beamsplitter network, homodyne readout on mode 0.
+    rotation + beamsplitter network, x-quadrature readout on mode 0.
     """
     eng  = sf.Engine("gaussian")
     prog = sf.Program(4)
@@ -123,7 +123,7 @@ def classical_gradient(x, params, target_values, y_true):
 def cv_multiplier_gradient(x, params, target_values, y_true):
     """
     CV multiplier gradient: finite difference via intensity-difference
-    homodyne circuit.  Returns (J, base_measurement).
+    x-quadrature circuit.  Returns (J, base_measurement).
     Physically: delta_f * e recovered at detector level via
         (alpha1^2 - alpha0^2) / 2 = delta_f * e
     where alpha_k = x_k_mean / 2  (SF hbar=2 convention).
@@ -168,7 +168,7 @@ def cv_multiplier_gradient(x, params, target_values, y_true):
 def pseudoinverse_update(params, thresholds, X_batch, y_batch,
                          target_values, eta, grad_fn):
     """
-    Regularised pseudoinverse parameter update.
+    Regularized pseudoinverse parameter update.
 
     Handles two cases depending on grad_fn:
     - classical_gradient: returns pure Jacobian J (df/dtheta).
@@ -226,7 +226,7 @@ def cv_circuit_update(params, thresholds, X_batch, y_batch,
     """
     CV displacement update circuit.
 
-    Each parameter mode is initialised with the current parameter value
+    Each parameter mode is initialized with the current parameter value
     via a displacement gate, then the scaled gradient is added via a
     second displacement gate.  The updated parameter is read from the
     mode mean (SF hbar=2: divide by 2):

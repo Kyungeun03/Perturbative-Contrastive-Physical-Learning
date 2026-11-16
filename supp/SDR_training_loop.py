@@ -361,7 +361,7 @@ def plot_results(all_histories, test_accs, checkpoint_epochs,
 
 
 def demonstrate_cv_learning(n_trials=5, epochs=30):
-    """Run n_trials independent training runs and produce publication figures."""
+    """Run n_trials independent training runs and produce figures."""
     iris = load_iris()
     X, y = iris.data, iris.target
     X = MinMaxScaler(feature_range=(-1, 1)).fit_transform(X)
