@@ -18,7 +18,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5, stratif
 # Linear circuit for classification
 def linear_classifier_circuit(x, params):
     """
-    Fully linear classifier circuit that directly outputs class via measurement
+    Linear classifier circuit that directly outputs class via measurement
     
     Args:
         x: normalized input features (4 features)
